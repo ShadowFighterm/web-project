@@ -1,0 +1,59 @@
+
+.navbar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 90%;
+    position: fixed;
+}
+.brand-logo{
+    height: 60px;
+    width: auto;
+}
+.nav-links{
+    display: flex;
+    list-style: none;
+    
+}
+.nav-links li{
+    color: grey;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    border-radius: 400px;
+    text-align: center;
+}
+.nav-links li:hover{
+    background-color: rgb(236, 236, 236);
+    color: black;
+}
+.active-link{
+    color: black !important;
+    font-weight: bold;
+}
+.active-link:hover{
+    background-color: white !important;
+}
+a, li{
+    cursor: pointer;
+    text-align: center;
+}
+.login-btn{
+    background-color: #fff;
+    border: 1px solid;
+    border-color: rgb(206, 200, 200);
+    color: grey;
+    margin-left: 10px;
+    transition: box-shadow 0.3s ease; /* Add smooth transition */
+}
+.login-btn:hover{
+    background-color: white !important;
+    color: grey !important;
+    box-shadow: 1px 3px 5px 0px rgb(221, 213, 213);
+    cursor: pointer;
+}
+#nav-center{
+    margin-left: 150px;
+}
