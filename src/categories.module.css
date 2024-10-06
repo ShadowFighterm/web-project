@@ -1,0 +1,79 @@
+.categoriesContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    width: 90%;
+    justify-content: start;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.category {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-left: 30px;
+}
+
+.categoriesContainer button {
+    border: none;
+    background-color: white;
+}
+
+.category img {
+    width: 25px;
+    margin: auto;
+    filter: grayscale(23%);
+}
+
+.category p {
+    margin: auto;
+    margin-top: 5px;
+    font-weight: 100;
+    color: grey;
+}
+
+.category:hover p {
+    color: black;
+}
+
+.category:hover div {
+    margin-top: 10px;
+    border-bottom: 2px solid grey !important;
+}
+
+.activeCategory p {
+    color: black;
+}
+
+.activeCategory div {
+    margin-top: 10px;
+    border-bottom: 2px solid black;
+}
+
+.activeCategory:hover div {
+    border-color: black !important;
+}
+
+.scrollButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 31%;
+    z-index: 1;
+}
+
+/* Positioning the scroll buttons */
+.scrollButton:first-of-type {
+    margin-left: 40px;
+    left: 0;
+}
+
+.scrollButton:last-of-type {
+    margin-right: 40px;
+    right: 0;
+}

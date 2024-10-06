@@ -1,0 +1,27 @@
+.center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+button{
+    cursor: pointer;
+}
+.horizontalFlex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.verticalFlex{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+.borderDown{
+    border-bottom: 1px solid rgb(231, 226, 226);
+    width: 100%;
+    margin-top: 25px;
+}
