@@ -1,23 +1,25 @@
-import "./navbar.css";
-import airbnbLogo from "./assets/airbnb_logo.png"
+import navbar from "./navbar.module.css";
+import airbnbLogo from "./assets/airbnb_logo.png";
+import global from "./global.module.css";
+
 function Navbar(){
     return (
-        <div class="center">
-            <nav class="navbar-container"> 
+        <div class={global.center}>
+            <nav class={navbar.navbarContainer}> 
                 <div>
-                    <a><img class="brand-logo" src={airbnbLogo}></img></a>
+                    <a><img class={navbar.brandLogo} src={airbnbLogo}></img></a>
                 </div>
-                <div id="nav-center">
-                    <ul class="nav-links">
-                        <li class="active-link"><a>Stays</a></li>
+                <div id={navbar.navCenter}>
+                    <ul class={navbar.navLinks}>
+                        <li class={navbar.activeLink}><a>Stays</a></li>
                         <li><a>Experiences</a></li>
                     </ul>
                 </div>
                 <div>
-                    <ul class="nav-links">
+                    <ul class={navbar.navLinks}>
                         <li><a>Airbnb your home</a></li>
                         <li><a>🌐</a></li>
-                        <li class="login-btn"><a>☰ 👤</a></li>
+                        <li class={navbar.loginBtn}><a>☰ 👤</a></li>
                     </ul>
                 </div>
             </nav>
