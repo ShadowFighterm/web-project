@@ -1,15 +1,9 @@
 import { createRoot } from "react-dom/client";
-import Navbar from "./navbar.jsx";
-import SearchBox from "./searchbox.jsx";
-import Categories from "./categories.jsx";
-import Footer from "./footer.jsx";
+import App from "./App";
 
 const root = document.getElementById('root');
 createRoot(root).render(
     <div>
-        <Navbar />
-        <SearchBox />
-        <Categories />
-        <Footer />
+        <App />
     </div>
 );

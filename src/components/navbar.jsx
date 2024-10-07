@@ -1,6 +1,6 @@
-import navbar from "./navbar.module.css";
-import airbnbLogo from "./assets/airbnb_logo.png";
-import global from "./global.module.css";
+import navbar from "../components/navbar.module.css";
+import airbnbLogo from "../assets/airbnb_logo.png";
+import global from "../components/global.module.css";
 
 function Navbar(){
     return (

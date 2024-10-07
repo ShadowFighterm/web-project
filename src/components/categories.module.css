@@ -6,6 +6,7 @@
     justify-content: start;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    gap: 30px;
 }
 
 .category {
@@ -14,7 +15,6 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    margin-left: 30px;
 }
 
 .categoriesContainer button {
@@ -25,7 +25,8 @@
 .category img {
     width: 25px;
     margin: auto;
-    filter: grayscale(23%);
+    filter: invert(50%) !important;
+    transition: filter 0.3s ease;
 }
 
 .category p {
@@ -33,24 +34,34 @@
     margin-top: 5px;
     font-weight: 100;
     color: grey;
+    transition: color 0.3s ease;
 }
 
 .category:hover p {
     color: black;
 }
 
-.category:hover div {
+.category:hover img{
+    filter: none !important;
+}
+
+.category div{
     margin-top: 10px;
-    border-bottom: 2px solid grey !important;
+    border-bottom: 2px solid white !important;
+}
+.category:hover div {
+    border-color:  rgb(209, 207, 207) !important;
 }
 
 .activeCategory p {
     color: black;
 }
+.activeCategory img{
+    filter: none !important;
+}
 
 .activeCategory div {
-    margin-top: 10px;
-    border-bottom: 2px solid black;
+    border-color: black !important;
 }
 
 .activeCategory:hover div {

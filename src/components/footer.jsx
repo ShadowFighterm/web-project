@@ -1,5 +1,5 @@
-import global from "./global.module.css";
-import footer from "./footer.module.css"
+import global from "../components/global.module.css";
+import footer from "../components/footer.module.css"
 
 function Footer() {
     return (

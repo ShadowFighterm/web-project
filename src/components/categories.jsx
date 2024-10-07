@@ -1,5 +1,5 @@
-import global from "./global.module.css";
-import categories from "./categories.module.css";
+import global from "../components/global.module.css";
+import categories from "../components/categories.module.css";
 import { useState, useRef, useEffect } from "react";
 
 const categoriesData = [
@@ -146,18 +146,18 @@ function Categories() {
     return (
         <div class={global.center}>
             <div ref={scrollRef} class={categories.categoriesContainer}>
-            {canScrollLeft && (
-                <button onClick={scrollLeft} className={categories.scrollButton}>◀</button>
-            )}
+                {canScrollLeft && (
+                    <button onClick={scrollLeft} className={categories.scrollButton}>◀</button>
+                )}
                 {categoriesData.map((category, index) => (
                     <button onClick={() => handleClick(index)} key={index} class={`${categories.category} ${activeIndex === index ? categories.activeCategory : ""}`}>
                         <img src={category.img} />
                         <p>{category.title}<div></div></p>
                     </button>
                 ))}
-            {canScrollRight && (
-                <button onClick={scrollRight} className={categories.scrollButton}>▶</button>
-            )}
+                {canScrollRight && (
+                    <button onClick={scrollRight} className={categories.scrollButton}>▶</button>
+                )}
             </div>
         </div>
     )

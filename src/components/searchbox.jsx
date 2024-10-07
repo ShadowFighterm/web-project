@@ -1,10 +1,9 @@
-import searchbox from "./searchbox.module.css";
-import global from "./global.module.css"
+import searchbox from "../components/searchbox.module.css";
+import global from "../components/global.module.css"
 
 function SearchBox() {
     return (
         <div class={global.verticalFlex}>
-
             <div class={global.center}>
                 <div class={searchbox.searchContainer}>
                     <button class={`${searchbox.searchBoxBtn} ${searchbox.w30}`}>

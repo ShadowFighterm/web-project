@@ -1,5 +1,5 @@
 
-.navbar-container{
+.navbarContainer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,39 +8,38 @@
     width: 90%;
     position: fixed;
 }
-.brand-logo{
+.brandLogo{
     height: 60px;
     width: auto;
 }
-.nav-links{
+.navLinks{
     display: flex;
     list-style: none;
     
 }
-.nav-links li{
+.navLinks li{
     color: grey;
-    font-size: 18px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
     padding: 10px;
     border-radius: 400px;
     text-align: center;
 }
-.nav-links li:hover{
+.navLinks li:hover{
     background-color: rgb(236, 236, 236);
     color: black;
 }
-.active-link{
+.activeLink{
     color: black !important;
     font-weight: bold;
 }
-.active-link:hover{
+.activeLink:hover{
     background-color: white !important;
 }
 a, li{
     cursor: pointer;
     text-align: center;
 }
-.login-btn{
+.loginBtn{
     background-color: #fff;
     border: 1px solid;
     border-color: rgb(206, 200, 200);
@@ -48,12 +47,17 @@ a, li{
     margin-left: 10px;
     transition: box-shadow 0.3s ease; /* Add smooth transition */
 }
-.login-btn:hover{
+.loginBtn:hover{
     background-color: white !important;
     color: grey !important;
     box-shadow: 1px 3px 5px 0px rgb(221, 213, 213);
     cursor: pointer;
 }
-#nav-center{
+#navCenter{
     margin-left: 150px;
+}
+
+@media (max-width: 875px)
+{
+    
 }
