@@ -35,7 +35,7 @@ function Footer() {
 
                     </div>
                 </div>
-                <div class={global.horizontalFlex}>
+                <div class={`${global.horizontalFlex} ${footer.info}`}>
                     <div class={`${global.horizontalFlex} ${footer.footerCopyright}`}>
                         <p>© 2024 Airbnb, Inc.</p>•
                         <a>Terms</a>•

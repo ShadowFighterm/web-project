@@ -73,8 +73,8 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
-    position: absolute;
-    top: 31%;
+    position: fixed;
+    top: 28%;
     z-index: 1;
 }
 
@@ -87,4 +87,10 @@
 .scrollButton:last-of-type {
     margin-right: 40px;
     right: 0;
+}
+
+@media (max-width: 950px) {
+    .scrollButton{
+        top: 38%;
+    }
 }

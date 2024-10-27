@@ -4,8 +4,9 @@
 }
 
 .footerCopyright {
-    gap: 20px;
+    gap: 5px;
     font-size: 15px;
+    width: auto;
 }
 
 .footerCopyright a:hover,
@@ -32,7 +33,11 @@
     width: 20px;
 }
 
-.socialLinks a {
+.socialLinks{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
     margin-left: 10px;
 }
 
@@ -53,10 +58,17 @@
 }
 
 .footerLinks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     margin-bottom: 40px;
     border-bottom: 1px solid rgb(231, 226, 226);
+    align-items: flex-start;
 }
 
-.footerLinks {
-    align-items: flex-start;
+@media (max-width: 1125px){
+    .info{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 }

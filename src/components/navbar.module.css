@@ -4,7 +4,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
     width: 90%;
     position: fixed;
 }
@@ -28,13 +27,6 @@
     background-color: rgb(236, 236, 236);
     color: black;
 }
-.activeLink{
-    color: black !important;
-    font-weight: bold;
-}
-.activeLink:hover{
-    background-color: white !important;
-}
 a, li{
     cursor: pointer;
     text-align: center;
@@ -55,9 +47,19 @@ a, li{
 }
 #navCenter{
     margin-left: 150px;
+    
 }
 
-@media (max-width: 875px)
+@media (max-width: 950px)
 {
-    
+    .navbarContainer{
+        position: static;
+    }
+}
+
+@media (max-width: 750px)
+{
+    .navbarContainer{
+        display: none;
+    }
 }

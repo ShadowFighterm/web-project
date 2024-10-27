@@ -7,12 +7,15 @@
 }
 .listingcardsContainer{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     width: 90%;
-    margin-top: 15px;
+    margin-top: 280px;
 }
 .listingCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: auto;
 }
 .listingCard h1, .listingCard h2{
@@ -24,27 +27,11 @@
     -webkit-line-clamp: 1; 
     overflow: hidden; 
     text-overflow: ellipsis; 
-    margin-top: -10px;
+    text-align: start;
+    margin: 3px;
+    width: 300px;
 }
 .listingCard h2{
     color: grey;
     font-weight: 500;
-}
-
-@media (max-width: 600px) {
-    .listingcardsContainer {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller cards on smaller screens */
-    }
-    .listingImage{
-        width: 200px;
-    }
-}
-
-@media (max-width: 900px) {
-    .listingcardsContainer {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Medium cards */
-    }
-    .listingImage{
-        width: 250px;
-    }
 }

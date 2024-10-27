@@ -58,10 +58,14 @@ function ListingCards() {
                 {listingCardsData.map((card, index) => {
                     return (
                         <div class={`${global.verticalFlex} ${listingcards.listingCard}`}>
-                            <img class={listingcards.listingImage} src={card.img} alt="" />
-                            <h1>{card.title}</h1>
-                            <h2>{card.hosted_by}</h2>
-                            <h1>{card.status}</h1>
+                            <div>
+                                <img class={listingcards.listingImage} src={card.img} alt="" />
+                            </div>
+                            <div>
+                                <h1>{card.title}</h1>
+                                <h2>{card.hosted_by}</h2>
+                                <h1>{card.status}</h1>
+                            </div>
                         </div>
                     )
                 })}

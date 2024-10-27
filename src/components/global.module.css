@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .center {
     display: flex;
     flex-direction: row;
@@ -42,4 +45,10 @@ div {
 
 body {
     margin: 0px;
+}
+
+a,
+li {
+    cursor: pointer;
+    text-align: center;
 }
