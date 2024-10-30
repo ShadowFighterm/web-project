@@ -94,3 +94,8 @@
         top: 38%;
     }
 }
+@media (max-width: 750px) {
+    .scrollButton{
+        display: none;
+    }
+}

@@ -44,8 +44,10 @@ function Footer() {
                         <a>Your Privacy Choices</a>
                     </div>
                     <div class={`${global.horizontalFlex} ${footer.footerCopyright}`}>
-                        <a><button>🌐</button>English (US)</a>
-                        <a><button>💲</button>USD</a>
+                        <div class={footer.settings}>
+                            <a><button>🌐</button>English (US)</a>
+                            <a><button>💲</button>USD</a>
+                        </div>
                         <div class={footer.socialLinks}>
                             <a><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" /></a>
                             <a><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" /></a>
