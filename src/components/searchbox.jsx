@@ -57,7 +57,7 @@ function SearchBox() {
                                     <h2>Add guests</h2>
                                 </div>
                                 <div>
-                                    <button class={searchbox.searchBtn}>⌕</button>
+                                    <button class={searchbox.searchBtn}><FaSearch /></button>
                                 </div>
                             </div>
                         </button>

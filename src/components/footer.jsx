@@ -1,5 +1,6 @@
 import global from "../components/global.module.css";
 import footer from "../components/footer.module.css"
+import { FaCheck, FaDollarSign, FaFacebook, FaGlobe, FaInstagram, FaRegCopyright, FaTimes, FaTwitter } from "react-icons/fa";
 
 function Footer() {
     return (
@@ -37,21 +38,33 @@ function Footer() {
                 </div>
                 <div class={`${global.horizontalFlex} ${footer.info}`}>
                     <div class={`${global.horizontalFlex} ${footer.footerCopyright}`}>
-                        <p>© 2024 Airbnb, Inc.</p>•
+                        <p><FaRegCopyright /> 2024 Airbnb, Inc.</p>•
                         <a>Terms</a>•
                         <a>Sitemap</a>•
                         <a>Privacy</a>•
-                        <a>Your Privacy Choices</a>
+                        <a>
+                            <div>
+                                Your Privacy Choices
+                            </div>
+                            <div className={footer.copyCapsule}>
+                                <div>
+                                    <FaCheck />
+                                </div>
+                                <div>
+                                    <FaTimes />
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class={`${global.horizontalFlex} ${footer.footerCopyright}`}>
                         <div class={footer.settings}>
-                            <a><button>🌐</button>English (US)</a>
-                            <a><button>💲</button>USD</a>
+                            <a><FaGlobe />English (US)</a>
+                            <a><FaDollarSign />USD</a>
                         </div>
                         <div class={footer.socialLinks}>
-                            <a><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" /></a>
-                            <a><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" /></a>
-                            <a><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" /></a>
+                            <a><FaFacebook /></a>
+                            <a><FaTwitter /></a>
+                            <a><FaInstagram /></a>
                         </div>
                     </div>
                 </div>

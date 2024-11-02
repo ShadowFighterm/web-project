@@ -1,6 +1,7 @@
 import global from "../components/global.module.css";
 import categories from "../components/categories.module.css";
 import { useState, useRef, useEffect } from "react";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const categoriesData = [
     {
@@ -96,46 +97,37 @@ const categoriesData = [
         img: "https://a0.muscache.com/pictures/1b6a8b70-a3b6-48b5-88e1-2243d9172c06.jpg",
     },
 ];
+
 function Categories() {
-    const [activeIndex, setActiveIndex] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
 
-    const handleClick = (index) => {
-        setActiveIndex(index);
-    };
+    const handleClick = (index) => setActiveIndex(index);
     const scrollRef = useRef(null);
 
-    // Function to scroll to the left
     const scrollLeft = () => {
-        if (scrollRef.current)
-            scrollRef.current.scrollBy({ left: -600, behavior: 'smooth' });
+        if (scrollRef.current) scrollRef.current.scrollBy({ left: -600, behavior: 'smooth' });
     };
 
-    // Function to scroll to the right
     const scrollRight = () => {
-        if (scrollRef.current)
-            scrollRef.current.scrollBy({ left: 600, behavior: 'smooth' });
+        if (scrollRef.current) scrollRef.current.scrollBy({ left: 600, behavior: 'smooth' });
     };
 
-    // Function to check scroll position and update arrow visibility
     const checkScrollPosition = () => {
         if (scrollRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-
             setCanScrollLeft(scrollLeft > 0);
             setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
         }
     };
 
-    // Add a scroll event listener
     useEffect(() => {
         const scrollElement = scrollRef.current;
         if (scrollElement) {
             scrollElement.addEventListener("scroll", checkScrollPosition);
-            checkScrollPosition(); // Check on initial render
+            checkScrollPosition();
         }
-
         return () => {
             if (scrollElement) {
                 scrollElement.removeEventListener("scroll", checkScrollPosition);
@@ -144,23 +136,39 @@ function Categories() {
     }, []);
 
     return (
-        <div class={global.center}>
-            <div ref={scrollRef} class={categories.categoriesContainer}>
-                {canScrollLeft && (
-                    <button onClick={scrollLeft} className={categories.scrollButton}>◀</button>
-                )}
-                {categoriesData.map((category, index) => (
-                    <button onClick={() => handleClick(index)} key={index} class={`${categories.category} ${activeIndex === index ? categories.activeCategory : ""}`}>
-                        <img src={category.img} />
-                        <p>{category.title}<div></div></p>
+        <div className={global.center}>
+            <div className={categories.wrapper}>
+                <div className={categories.scrollButtonsWrapper}>
+                    <button
+                        onClick={scrollLeft}
+                        className={`${categories.scrollButton} ${!canScrollLeft ? categories.hidden : ""}`}
+                    >
+                        <FaAngleLeft />
                     </button>
-                ))}
-                {canScrollRight && (
-                    <button onClick={scrollRight} className={categories.scrollButton}>▶</button>
-                )}
+                    <button
+                        onClick={scrollRight}
+                        className={`${categories.scrollButton} ${!canScrollRight ? categories.hidden : ""}`}
+                    >
+                        <FaAngleRight />
+                    </button>
+                </div>
+                <div ref={scrollRef} className={categories.categoriesContainer}>
+                    {categoriesData.map((category, index) => (
+                        <button
+                            onClick={() => handleClick(index)}
+                            key={index}
+                            className={`${categories.category} ${activeIndex === index ? categories.activeCategory : ""}`}
+                        >
+                            <img src={category.img} alt={category.title} />
+                            <p>{category.title}</p>
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
-    )
+    );
+
+
 }
 
 export default Categories;

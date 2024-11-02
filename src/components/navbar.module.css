@@ -16,7 +16,29 @@
     list-style: none;
     
 }
+
+.navLinks a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    gap: 15px;
+}
+.globeUserIcon{
+    font-size: 30px;
+}
+.globeGlobeIcon{
+    padding: 5px;
+    font-size: 28px;
+}
+.globeUserIcon, .globeBarsIcon{
+    color: grey;
+}
+
 .navLinks li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: grey;
     font-size: 17px;
     padding: 10px;
