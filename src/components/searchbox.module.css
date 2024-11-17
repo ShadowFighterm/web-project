@@ -1,4 +1,5 @@
-.searchContainer {
+.searchContainer,
+.searchContainerScrolled {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,6 +10,16 @@
     width: 850px;
     box-shadow: 2px 2px 2px 0px rgb(221, 218, 218);
     height: 60px;
+}
+
+.searchContainerScrolled {
+    width: 400px;
+    height: 48px;
+    z-index: 1;
+}
+
+.searchContainerScrolled:hover {
+    cursor: pointer;
 }
 
 
@@ -25,7 +36,7 @@
     background: rgb(253, 50, 50);
     border-color: rgb(253, 50, 50);
     color: white;
-   
+
 }
 
 .searchBoxBtnContainer {
@@ -49,11 +60,49 @@
 }
 
 .searchBoxBtn h1 {
+    display: flex;
+    justify-content: flex-start !important;
     margin: auto;
     margin-left: 15px;
-    font-size: 12px;
-    color: black;
-    font-weight: 300;
+    font-size: 12px !important;
+    color: black !important;
+    font-weight: 300 !important;
+}
+
+.globalVersionScrolled {
+    display: flex;
+    flex-direction: flex-end;
+    width: 100%;
+}
+
+.globalVersionScrolled h1 {
+    font-size: 16px;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.globalVersionScrolled h1:first-of-type {
+    border-right: 1px solid grey;
+}
+
+.globalVersionScrolled h1:last-of-type {
+    border-left: 1px solid grey;
+    color: grey;
+}
+
+.globalVersionScrolled div {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.globalVersionScrolled button {
+    height: 35px;
+    width: 35px;
+    font-size: 18px;
 }
 
 .searchBoxBtn h2 {
@@ -144,7 +193,7 @@
     width: 100%;
     height: 99%;
     border-radius: inherit;
-    
+
 }
 
 .mobileVersion {
@@ -197,9 +246,25 @@
     gap: 5px;
 }
 
+@media (max-width: 1130px) {
+    .customScrolled{
+        align-items: flex-start;
+    }
+    .searchContainerScrolled{
+        margin-left: 150px;
+    }
+}
+
 @media (max-width: 950px) {
     .searchContainer {
         width: 90%;
+    }
+    .customScrolled{
+        align-items: center;
+    }
+    .searchContainerScrolled
+    {
+        margin-left: 0;
     }
 }
 
@@ -213,8 +278,10 @@
         cursor: pointer;
     }
 
-    .globalVersion {
-        display: none;
+    .globalVersion, 
+    .globalVersionScrolled
+    {
+        display: none !important;
     }
 
     .mobileVersion {
@@ -222,6 +289,10 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+    }
+    .searchContainerScrolled{
+        width: 90%;
+        height: 60px;
     }
 
 }
