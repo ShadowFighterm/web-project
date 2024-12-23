@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    position: fixed;
+    z-index: 2;
 }
 .brandLogo{
     height: 60px;
@@ -49,6 +49,53 @@
     background-color: rgb(236, 236, 236);
     color: black;
 }
+.userMenu {
+    position: absolute;
+    top: 80px; /* Adjust based on your navbar height */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 250px; /* Adjust width */
+    padding: 10px 0; /* Padding inside the dropdown */
+}
+
+.userMenu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.userMenu ul li {
+    padding: 12px 20px; /* Spacing for items */
+    font-size: 14px; /* Adjust font size */
+    color: #333; /* Text color */
+    cursor: pointer; /* Pointer on hover */
+    border-radius: 0px;
+}
+
+.userMenu ul li a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color */
+    display: flex;
+    width: 100%;
+
+    
+}
+
+.userMenu ul li:hover {
+    background-color: #f7f7f7; /* Light gray background on hover */
+}
+
+.logSign{
+    border-bottom: 1px solid rgb(219, 213, 213);
+    margin-bottom: 12px;
+}
+
+.logSign ul{
+   margin-bottom: 12px;
+}
+
 a, li{
     cursor: pointer;
     text-align: center;

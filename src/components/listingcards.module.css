@@ -17,6 +17,7 @@
     flex-direction: column;
     align-items: center;
     width: auto;
+    cursor: pointer;
 }
 .listingCard h1, .listingCard h2{
     font-size: 15px;

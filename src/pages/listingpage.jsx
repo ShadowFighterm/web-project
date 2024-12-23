@@ -7,9 +7,16 @@ import SearchBox from "../components/searchbox";
 function Listingpage(){
     return (
         <div>
-            <Navbar />
-            <SearchBox />
-            <Listing />
+            <div style={{
+                width: "100%",
+                backgroundColor: "white",
+            }}>
+                <Navbar isFixed={false}/>
+                <SearchBox isScrolledProp={true} />
+            </div>
+            <div>
+                <Listing />
+            </div>
             <Footer />
         </div>
     )

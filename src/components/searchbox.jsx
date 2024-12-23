@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 
 
-function SearchBox() {
+function SearchBox({isScrolledProp=false}) {
     let [activeLink, setActiveLink] = useState("Stays");
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(isScrolledProp);
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
+            setIsScrolled(isScrolledProp || window.scrollY > 0);
         };
 
         window.addEventListener("scroll", handleScroll);
