@@ -1,60 +1,79 @@
-import ListingImages from "./listingimages";
+import ListingImages from "./listingImages";
 import style from "./listing.module.css";
-import { FaBed, FaHeart, FaLock, FaShare, FaStar, FaTshirt } from "react-icons/fa";
+import { FaBed, FaDollarSign, FaFunnelDollar, FaHeart, FaLock, FaShare, FaStar, FaTshirt } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import BookingForm from "./bookingForm";
 
+// Icon mapping for benefits
 const iconMap = {
     FaBed: <FaBed />,
     FaTshirt: <FaTshirt />,
     FaPerson: <FaPerson />,
     FaLock: <FaLock />
-}
-
-const data = {
-    title: "Stay in Prince’s Purple Rain house",
-    img: [
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEzMTA4OTQ5ODA0MDcwMTE4Mw%3D%3D/original/a766e0e9-1e6f-4b88-b8d5-ce12375c6de8.png?im_w=1200&im_q=highq&im_format=avif",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEzMTA4OTQ5ODA0MDcwMTE4Mw%3D%3D/original/71d534a9-6699-4fe0-ad82-a9aaf0450b56.png?im_w=720&im_q=highq&im_format=avif",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEzMTA4OTQ5ODA0MDcwMTE4Mw%3D%3D/original/34eac43e-9e92-4aaf-97d4-eea9f1d53a88.png?im_w=720&im_q=highq&im_format=avif",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEzMTA4OTQ5ODA0MDcwMTE4Mw%3D%3D/original/3f7a34a4-0052-4d5d-8e81-a75667f48a70.png?im_w=720&im_q=highq&im_format=avif",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEzMTA4OTQ5ODA0MDcwMTE4Mw%3D%3D/original/3df353c0-ad1c-4248-b31c-c3f6b2053fc4.png?im_w=720&im_q=highq&im_format=avif",
-    ],
-    location: "Minneapolis, Minnesota, United States",
-    rooms: ["4 guests", "2 bedrooms", "2 beds", "2 baths"],
-    rating: "5.0",
-    reviews: "19",
-    hostedByImg: "https://a0.muscache.com/im/pictures/user/User-571409646/original/ea5debfb-2394-444c-ae7a-e30e13363e59.jpeg?im_w=240&im_format=avif",
-    hostedBy: "Wendy And Lisa",
-    member: "Members of The Revolution",
-    price: 55,
-    cleaningFee: 26,
-    airbnbFee: 46,
-    benefits: [
-        {
-            icon: "FaBed",
-            title: "Visit the actual Purple Rain house",
-            description: "Sleep in The Kid’s basement bedroom, where your dreams actually come true.",
-        },
-        {
-            icon: "FaTshirt",
-            title: "Explore Prince’s legendary wardrobe",
-            description: "Wanna see THE suit from the Purple Rain tour? Check the closet and rejoice.",
-        },
-        {
-            icon: "FaPerson",
-            title: "Channel your inner superstar",
-            description: "Learn how to rock the drums or nail the vocals on our song “Purple Rain.”",
-        },
-        {
-            icon: "FaLock",
-            title: "Flex your Prince IQ",
-            description: "Are u a Prince fam? Find the secret space, where a purple riddle awaits….",
-        },
-    ],
 };
 
 function Listing() {
-    const listing = data; // Assuming we only have one listing for now.
+    const { id } = useParams(); // Get the id from the URL
+    const [listing, setListing] = useState(null); // Initially null, waiting for the backend data
+    const [soldOut, setSoldOut] = useState(false);
+    const [checkInDate, setCheckInDate] = useState(null);
+    const [checkOutDate, setCheckOutDate] = useState(null);
+    const [nights, setNights] = useState(1);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    // Fetch the listing data from the backend when `id` changes
+    useEffect(() => {
+        const fetchListing = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/listings/${id}`);
+                setListing(response.data); // Set the listing data from backend
+            } catch (error) {
+                console.error("Fetch error:", error);
+            }
+        };
+
+        fetchListing();
+    }, [id]);
+
+    // Check if the listing is sold out
+    useEffect(() => {
+        if (listing && listing.price === null) {
+            setSoldOut(true);
+        } else {
+            setSoldOut(false);
+        }
+    }, [listing]); // Trigger when `listing` changes
+
+    // Update total price when the number of nights changes
+    useEffect(() => {
+        if (listing && listing.price && nights) {
+            setTotalPrice(listing.price * nights); // Calculate total price
+        }
+    }, [listing, nights]); // Trigger when `listing` or `nights` changes
+
+    // Calculate the number of nights based on check-in and check-out dates
+    useEffect(() => {
+        if (checkInDate && checkOutDate) {
+            const diffTime = Math.abs(checkOutDate - checkInDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convert ms to days
+            setNights(diffDays); // Set the number of nights
+        }
+    }, [checkInDate, checkOutDate]);
+
+    // Handle date change
+    const handleDateChange = (checkIn, checkOut) => {
+        setCheckInDate(checkIn);
+        setCheckOutDate(checkOut);
+    };
+
+    // If `listing` is still null, show a loading indicator
+    if (!listing) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className={style.container}>
             <div className={style.title}>
@@ -71,7 +90,7 @@ function Listing() {
                 </div>
             </div>
             <div>
-                <ListingImages img={data.img}/>
+                <ListingImages img={listing.img} />
             </div>
             <div className={style.details}>
                 <div>
@@ -85,10 +104,32 @@ function Listing() {
                 </div>
             </div>
             <div className={style.requestCardContainer}>
-                <div className={style.requestCard}>
-                    Sold out
-                    <button>Request</button>
-                </div>
+                {
+                    soldOut ? (
+                        <div className={style.requestCard}>
+                            Sold out
+                            <button disabled={soldOut} className={style.requestBtn}>Request</button>
+                        </div>
+                    ) : (
+                        <div className={style.requestCard}>
+                            <div>
+                                <div>${listing.price}</div>
+                                <div>night</div>
+                            </div>
+                            <div className={style.checkInOut}>
+                                <BookingForm onDateChange={handleDateChange} />
+                            </div>
+                            <button className={style.requestBtn}>Request</button>
+                            <div className={style.disclaimer}>You won't be charged yet</div>
+                            <div className={style.priceCalContainer}>
+                                <div>${listing.price} x {nights} nights</div>
+                                <div>${totalPrice}</div>
+                            </div>
+                            <div className={style.totalPriceContainer}>Total before taxes: <span>${totalPrice}</span></div>
+                        </div>
+                    )
+                }
+
             </div>
             <div className={style.hostedByContainer}>
                 <div>
@@ -115,7 +156,9 @@ function Listing() {
                     ))}
                 </div>
             </div>
-            <div className={style.description}></div>
+            <div className={style.descriptionContainer}>
+                <div className={style.description}>{listing.description}</div>
+            </div>
         </div>
     );
 }

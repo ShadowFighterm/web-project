@@ -1,6 +1,5 @@
-const express = require('express');
-const listingsModel = require('../models/listings');
-const router = express.Router();
+const router = require('express').Router();
+const listingsController = require('../controllers/listings');
 const listings = [
     {
         id: 1,
@@ -59,21 +58,12 @@ const listings = [
         img: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0ODQ2MDI1NTE4MDMzOTQ4MQ%3D%3D/original/c92634d0-4964-439a-905d-b9129af14d34.jpeg"
     }
 ];
-// API Endpoints
-// Get all listings
-router.get('/listings', (req, res) => {
-    res.json(listings);
-});
 
-// Get listing details by ID
-router.get('/listings/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const listing = listings.find((item) => item.id === id);
-    if (listing) {
-        res.json(listing);
-    } else {
-        res.status(404).json({ message: 'Listing not found' });
-    }
-});
+
+router.get('/listings', listingsController.getAllListings);
+router.get('/listings/:id', listingsController.getListingById);
+router.post('/admin/listings', listingsController.addListing);
+router.delete('/admin/listings/:id', listingsController.deleteListing);
+
 
 module.exports = router;

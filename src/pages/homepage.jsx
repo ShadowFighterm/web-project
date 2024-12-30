@@ -1,5 +1,5 @@
 import Footer from "../components/footer.jsx";
-import ListingCards from "../components/listingcards.jsx";
+import ListingCards from "../components/listingCards.jsx";
 import Header from "../components/header.jsx";
 import Categories from "../components/categories.jsx";
 

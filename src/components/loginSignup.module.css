@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.inputContainer {
+    font-size: 12px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #464646;
+    border-radius: 10px;
+    color: #464646;
+}
+
+.inputContainer input {
+    font-size: 16px;
+}
+
+.inputContainer input:focus {
+    outline: none;
+}
+
+.inputContainer>div {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 2px;
+
+}
+
+.inputContainer>div:first-child {
+    border-bottom: 1px solid #464646;
+}
+
+.inputContainer input {
+    border: none;
+}
+
+.disclaimer {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #464646;
+}
+
+.disclaimer span {
+    color: black;
+    text-decoration: underline;
+}
+
+.btn {
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(90deg,
+            rgba(128, 0, 128, 1) 0%,
+            /* Purple on the left edge */
+            rgba(255, 0, 0, 1) 30%,
+            /* Bright red in the center */
+            rgba(128, 0, 128, 1) 120%
+            /* Purple on the right edge */
+        );
+    border-radius: 10px;
+}
+
+.or{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.socials{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.socials button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #464646;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: inherit;
+}
+.socialBtns{
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
+}
+
+.socialBtns > button{
+    width: 32%;
+    font-size: 22px;
+}
+.emailBtn > button{
+    width: 100%;
+    font-size: 18px;
+    gap: 20px;
+}

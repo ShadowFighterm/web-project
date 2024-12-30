@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,7 +6,7 @@
     gap: 20px;
 }
 
-.title{
+.title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -16,7 +16,7 @@
     font-weight: bold;
 }
 
-.title div:last-child button{
+.title div:last-child button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -31,47 +31,48 @@
     padding: 10px;
 }
 
-.title div:last-child button:hover{
+.title div:last-child button:hover {
     background-color: rgb(243, 243, 243);
 }
 
-.title div:last-child{
+.title div:last-child {
     display: flex;
     flex-direction: row;
     gap: 2px;
 }
 
-.rating{
+.rating {
     display: flex;
     flex-direction: row;
     gap: 5px;
     font-weight: bold;
     color: rgb(39, 39, 39);
 }
-.rating span{
+
+.rating span {
     text-decoration: underline;
 }
 
-.details{
+.details {
     display: flex;
     flex-direction: column;
     width: 90%;
     gap: 10px;
 }
 
-.details div:first-child div:first-child{
+.details div:first-child div:first-child {
     font-weight: bold;
     font-size: 25px;
     color: rgb(39, 39, 39);
 }
 
-.details div:first-child{
+.details div:first-child {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.requestCardContainer{
+.requestCardContainer {
     display: flex;
     justify-content: flex-end;
     position: absolute;
@@ -79,6 +80,7 @@
     right: 5%;
     width: 30%;
 }
+
 .requestCard {
     width: 100%;
     border: 1px solid rgb(209, 209, 209);
@@ -95,8 +97,33 @@
     padding: 30px 0px 30px 0px;
 }
 
-.requestCard button{
-    background-color: rgb(192, 190, 190);
+.requestCard>div {
+    width: 90%;
+}
+
+.requestCard>div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.requestCard>div:first-child>div {
+    display: flex;
+    align-items: flex-end;
+}
+
+.requestCard>div:first-child>div:last-child {
+    font-size: 16px;
+    color: rgb(99, 99, 99);
+    font-weight: lighter;
+}
+
+.requestCard>div:first-child>div:first-child {
+    font-size: 22px;
+}
+
+.requestBtn{
     border: none;
     padding: 20px;
     border-radius: 10px;
@@ -104,15 +131,32 @@
     font-size: 16px;
     font-weight: 600;
     color: white;
+}
+
+.requestBtn:disabled {
+    background-color: rgb(192, 190, 190);
     cursor: not-allowed;
 }
 
-.hostedByContainer{
+.requestBtn:enabled {
+    background: linear-gradient(90deg,
+            rgba(128, 0, 128, 1) 0%,
+            /* Purple on the left edge */
+            rgba(255, 0, 0, 1) 30%,
+            /* Bright red in the center */
+            rgba(128, 0, 128, 1) 120%
+            /* Purple on the right edge */
+        );
+    cursor: pointer;
+}
+
+.hostedByContainer {
     display: flex;
     width: 90%;
     flex-direction: column;
 }
-.hostedByContainer > div:first-child{
+
+.hostedByContainer>div:first-child {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -123,28 +167,30 @@
     border-color: rgb(201, 200, 200);
     padding: 20px 0px 20px 0px;
 }
-.hostedByContainer > div:first-child > div:last-child{
+
+.hostedByContainer>div:first-child>div:last-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
 }
 
-.hostedByContainer > div:first-child > div:first-child img{
+.hostedByContainer>div:first-child>div:first-child img {
     border-radius: 50%;
     height: 50px;
     width: auto;
 }
-.hostedByContainer > div:first-child > div:last-child > div:first-child{
+
+.hostedByContainer>div:first-child>div:last-child>div:first-child {
     font-weight: bold;
     color: rgb(39, 39, 39);
 }
 
-.hostedByContainer > div:first-child > div:last-child > div:last-child{
+.hostedByContainer>div:first-child>div:last-child>div:last-child {
     color: rgb(102, 101, 101);
 }
 
-.hostedByContainer > div:last-child{
+.hostedByContainer>div:last-child {
     display: flex;
     flex-direction: column;
     padding: 20px 0px 20px 0px;
@@ -153,28 +199,80 @@
     width: 60%;
 }
 
-.hostedByContainer > div:last-child > div{
+.hostedByContainer>div:last-child>div {
     display: flex;
     flex-direction: row;
     gap: 30px;
 }
 
-.hostedByContainer > div:last-child > div > div{
+.hostedByContainer>div:last-child>div>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
 }
-.hostedByContainer > div:last-child > div > div:first-child{
+
+.hostedByContainer>div:last-child>div>div:first-child {
     font-size: 30px;
     color: rgb(97, 97, 97);
 }
 
-.hostedByContainer > div:last-child > div > div:last-child > div:first-child{
+.hostedByContainer>div:last-child>div>div:last-child>div:first-child {
     font-weight: bold;
     color: rgb(39, 39, 39);
 }
-.hostedByContainer > div:last-child > div > div:last-child > div:last-child{
+
+.hostedByContainer>div:last-child>div>div:last-child>div:last-child {
     font-size: 15px;
-    color: rgb(102, 101, 101);;
+    color: rgb(102, 101, 101);
+    ;
+}
+
+.disclaimer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #464545cc;
+    font-weight: lighter;
+}
+
+
+.priceCalContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(168, 167, 167);
+    padding-bottom: 30px;
+}
+.priceCalContainer > div:first-child, .priceCalContainer > div:last-child{
+    font-size: 16px;
+    font-weight: lighter;
+    color: #6e6e6e;
+}
+.priceCalContainer > div:first-child{
+    text-decoration: underline;
+}
+
+.totalPriceContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
+    color: grey;
+}
+
+.descriptionContainer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+}
+
+.description{
+    width: 60%;
+    color: rgb(95, 95, 95);
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 22px;
 }
